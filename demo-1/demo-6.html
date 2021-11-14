@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--view层（模板）-->
+<div id="app">
+
+<!--    传递给组件中的值-->
+  <my-component v-for="item in items" v-bind:temp="item"></my-component>
+
+</div>
+
+<!--    导包-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+
+  //component 定义一个vue组件
+  Vue.component("my-component",{
+      props: ['temp'],
+      template: '<li>{{temp}}</li>'
+  });
+
+  var vm = new Vue({
+    //通过Id绑定元素
+    el:"#app",
+    //model层（数据）
+    data:{
+      items: ["java","linux","redis","mybatis","maven"]
+    }
+  });
+
+</script>
+</body>
+</html>

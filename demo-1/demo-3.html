@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!--view层（模板）-->
+<div id="app">
+  <li v-for="item in items">
+      {{item.message}}
+  </li>
+
+</div>
+
+<!--    导包-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var vm = new Vue({
+    //通过Id绑定元素
+    el: "#app",
+    //model层（数据）
+    data: {
+      items: [
+        {message: "java"},
+        {message: "python"},
+        {message: "php"},
+        {message: "go"}
+      ]
+    }
+  });
+
+</script>
+
+</body>
+</html>
